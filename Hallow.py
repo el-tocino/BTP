@@ -12,12 +12,15 @@ cam.exposure_mode = 'off'
 cam.awb_mode = 'off'
 cam.iso = '200'
 ### determine shutter speed for pics and set here
-### c.shutter_speed = int(ss)
+### cam.shutter_speed = int(ss)
 
 # set dmx stuff
-dmx = DmxPy('/dev/USBTTY0')
+try:
+    dmx = DmxPy('/dev/USBTTY0')
+except:
+    dmx = DmxPy('/dev/USBTTY1')
 
-
+# RUN FOREVER!
 while True:
     if button.is_pressed:
         fn = str(time.time()) + ".jpg"
