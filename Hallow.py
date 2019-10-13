@@ -24,7 +24,7 @@ except:
 # RUN FOREVER!
 while True:
     if button.is_pressed:
-        fn = str(time.time()) + ".jpg"
+        fn = str(time.time()) + ".png"
         dmx.setChannel(0,200)
         dmx.setChannel(1,200)
         dmx.setChannel(2,200)
