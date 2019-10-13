@@ -1,11 +1,10 @@
-import RPi.GPIO as GPIO
+from gpiozero import Button
 from picamera import PiCamera
 from DmxPy import DmxPy
 import time
 
 # set gpio stuff
-GPIO.setmode(GPIO.BOARD)
-GPIO.setwarnings(False)
+button = Button(21)
 
 # set cam stuff
 cam = PiCamera()
@@ -19,14 +18,20 @@ cam.iso = '200'
 dmx = DmxPy('/dev/USBTTY0')
 
 
+while True:
+    if button.is_pressed:
+        fn = str(time.time()) + ".jpg"
+        dmx.setChannel(1,200)
+        dmx.setChannel(2,200)
+        dmx.setChannel(3,200)
+        dmx.render()
+        cam.capture(fn)
+    else:
+        time.sleep(.1)
+    time.sleep(3)
+    
 
-
-GPIO.input(channel)
-
-dmx.setChannel(1,200)
-dmx.setChannel(2,200)
-dmx.setChannel(3,200)
-dmx.render()
+    
 
 
 
