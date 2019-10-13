@@ -21,11 +21,14 @@ dmx = DmxPy('/dev/USBTTY0')
 while True:
     if button.is_pressed:
         fn = str(time.time()) + ".jpg"
+        dmx.setChannel(0,200)
         dmx.setChannel(1,200)
         dmx.setChannel(2,200)
         dmx.setChannel(3,200)
         dmx.render()
         cam.capture(fn)
+        dmx.blackout()
+        dmx.render()
     else:
         time.sleep(.1)
     time.sleep(3)
