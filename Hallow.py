@@ -10,7 +10,7 @@ button = Button(21) # pin 40 on a pi 3b.
 cam = PiCamera()
 cam.exposure_mode = 'off'
 cam.awb_mode = 'off'
-cam.iso = '200'
+cam.iso = 200
 cam.sensor_mode = 2
 ### determine shutter speed for pics and set here
 ### cam.shutter_speed = int(ss)
