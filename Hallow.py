@@ -4,13 +4,14 @@ from DmxPy import DmxPy
 import time
 
 # set gpio stuff
-button = Button(21)
+button = Button(21) # pin 40 on a pi 3b.
 
 # set cam stuff
 cam = PiCamera()
 cam.exposure_mode = 'off'
 cam.awb_mode = 'off'
 cam.iso = '200'
+cam.sensor_mode = 2
 ### determine shutter speed for pics and set here
 ### cam.shutter_speed = int(ss)
 
@@ -32,10 +33,9 @@ while True:
         cam.capture(fn)
         dmx.blackout()
         dmx.render()
+        time.sleep(3)
     else:
         time.sleep(.1)
-    time.sleep(3)
-    
 
     
 
