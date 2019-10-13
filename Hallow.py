@@ -17,10 +17,13 @@ cam.sensor_mode = 2
 
 # set dmx stuff
 try:
-    dmx = DmxPy('/dev/USBTTY0')
+    dmx = DmxPy('/dev/ttyUSB0')
 except:
-    dmx = DmxPy('/dev/USBTTY1')
-
+    dmx = DmxPy('/dev/ttyUSB1')
+elsE:
+    print ("failed to open dmx device!")
+    sys.exit()      
+    
 # RUN FOREVER!
 while True:
     if button.is_pressed:
