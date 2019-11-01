@@ -11,11 +11,14 @@ button = Button(21) # pin 40 on a pi 3b.
 # set cam stuff
 cam = PiCamera()
 
+# set DMX updates
 def DmxSent(state):
   wrapper.Stop()
 
+# define overlay image
 overlayimg = Image.open ("overlay.png")
 
+# define DMX presets
 universe = 1
 lred = array.array('B', [100, 100])
 lgreen = array.array('B', [100, 0, 100])
@@ -23,16 +26,17 @@ lblue = array.array('B', [100, 0, 0, 100])
 lall = array.array('B', [250, 240, 200, 250])
 loff = array.array('B', [0, 0, 0, 0, 0])
 
+# display what the camera sees on the local screen
 cam.start_preview()
 
+# set initial camera settings.  2s delay allows sensor to adjust
+# to lighting scheme before setting values.
 wrapper = ClientWrapper()
 client = wrapper.Client()
 client.SendDmx(universe, lall, DmxSent)
 cam.iso = 200
 time.sleep(2)
 cam.shutter_speed=cam.exposure_speed
-#cam.exposure_mode = 'off'
-#cam.awb_mode = 'off'
 print (cam.shutter_speed, cam.awb_gains)
 client.SendDmx(universe, loff, DmxSent)
 cam.sensor_mode = 2
@@ -60,4 +64,3 @@ while True:
         time.sleep(1)
     else:
         time.sleep(.1)
-
