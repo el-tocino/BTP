@@ -9,16 +9,16 @@ layout grid:
 
 server:
 - get results from nodes
-- store current plus two previous results for each node
-- calc expected new position in space based on trajectory of last three points
-- map expected position to layout grid
+- write results to file for later consideration?
+- calc position based on latest result from nodes
+- map position to layout grid
 - calc servo difference
 - send servo movements
 - repeat
 - time sync 
 
 nodes:
-- blast ap rssi non-stop, basically
+- blast ap rssi non-stop, basically (time.sleep(.01) seems to work on a pi3)
 - sync time
 
 #### node positioning
