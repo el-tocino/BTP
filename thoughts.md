@@ -18,7 +18,7 @@ server:
 - time sync 
 
 nodes:
-- blast ap rssi non-stop, basically (time.sleep(.01) seems to work on a pi3)
+- blast ap rssi non-stop (time.sleep(.016) worked 68-72 times in one second on a pi3)
 - sync time
 
 #### node positioning
