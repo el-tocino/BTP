@@ -19,7 +19,7 @@ server:
 
 - time sync 
 
-nodes:
+nodes (reporter.py):
 - blast ap rssi non-stop (time.sleep(.016) worked 68-72 times in one second on a pi3)
 
 - sync time
@@ -27,8 +27,6 @@ nodes:
 ##### node positioning
 
 If sufficient space is used between nodes, then it's not really necessary to place them precisely. Layout should, theoretically, get the data averaged correctly. 
-
-Assume the 50,0 point is where the mount is at. 0,0 is bottom left, 100,100 is upper right.  
 
 ##### how many nodes?
 
