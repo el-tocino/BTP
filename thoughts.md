@@ -32,6 +32,10 @@ If sufficient space is used between nodes, then it's not really necessary to pla
 
 Three would be the real minimum.  Allow server to track up to say, six nodes.  Too many could slow down calculations, maybe?  Test and see.
 
+##### Layout
+
+The grid should be broken into a exponential mapping. IE, the closer (y) and middle (x) areas get increasingly dense the closer to 50,0 you get.
+
 ##### what if a udp packet drops?
 
 we'll get another.  List of last three should allow for targeting fairly accurately even if one node has recent but not current entries.
