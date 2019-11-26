@@ -46,8 +46,15 @@ simple, effective. If no update, assume last values still valid.
 
 ##### smooth out servo movements
 
-https://makingfernand0.wordpress.com/2014/06/30/smooth-movement-with-servos/
-https://www.raspberrypi.org/forums/viewtopic.php?t=105554
+Will require tracking last positional argument for each axis. 
+N-point easing? 3 to start with.  See interp.py.  After figuring out how much overhead that adds, adjust as needed. 
+
+See also:
+
+(https://github.com/cansik/smooth-servo)
+(https://makingfernand0.wordpress.com/2014/06/30/smooth-movement-with-servos/)
+(https://www.raspberrypi.org/forums/viewtopic.php?t=105554)
+(https://en.wikipedia.org/wiki/Spline_interpolation#Algorithm_to_find_the_interpolating_cubic_spline)
 
 ##### wuuuuuttt
 
