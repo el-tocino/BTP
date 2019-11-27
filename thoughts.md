@@ -1,11 +1,11 @@
-2d mapping
+##### 2d mapping
 
 layout grid:
-- Map corners plus "center" and nodes.
-- track AP via nodes, adjust camera to point at it, wait at least ten seconds for data to get averaged
+- Map corners plus "center".
+- track AP via nodes, adjust camera to point at it, wait at least five? seconds for data to get averaged
 - repeat at three other corners in order
 - repeat for center point
-- save settings as P1, P2, P3, P4, C0, N0, N1, N2, etc..
+- save settings as P1, P2, P3, P4, C0
 
 server:
 - get results from nodes
@@ -13,16 +13,17 @@ server:
 - calc position based on latest result from nodes
 - map position to layout grid
 - calc target servo position
-- calc servo easing
+- calc servo easing (see interp.py)
 - send servo movements
 - repeat
-
-- time sync 
+- time sync?
 
 nodes (reporter.py):
 - blast ap rssi non-stop (time.sleep(.016) worked 68-72 times in one second on a pi3)
 
 - sync time
+
+todo: testing of mapping.
 
 ##### node positioning
 
@@ -46,8 +47,15 @@ simple, effective. If no update, assume last values still valid.
 
 ##### smooth out servo movements
 
-https://makingfernand0.wordpress.com/2014/06/30/smooth-movement-with-servos/
-https://www.raspberrypi.org/forums/viewtopic.php?t=105554
+Will require tracking last positional argument for each axis. 
+N-point easing? 3 to start with.  See interp.py.  After figuring out how much overhead that adds, adjust as needed. 
+
+See also:
+
+(https://github.com/cansik/smooth-servo)
+(https://makingfernand0.wordpress.com/2014/06/30/smooth-movement-with-servos/)
+(https://www.raspberrypi.org/forums/viewtopic.php?t=105554)
+(https://en.wikipedia.org/wiki/Spline_interpolation#Algorithm_to_find_the_interpolating_cubic_spline)
 
 ##### wuuuuuttt
 
