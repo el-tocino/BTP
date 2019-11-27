@@ -8,8 +8,8 @@ layout grid:
 - save settings as P1, P2, P3, P4, C0
 
 server:
-- get results from nodes
-- write results to file for later consideration?
+- get results from nodes (see read-packets.py)
+- write results to file for later consideration? 
 - calc position based on latest result from nodes
 - map position to layout grid
 - calc target servo position
