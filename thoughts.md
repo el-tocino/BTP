@@ -8,20 +8,18 @@ layout grid:
 - save settings as P1, P2, P3, P4, C0
 
 server:
-- get results from nodes
-- write results to file for later consideration?
+- get results from nodes (reporter.py, read-packets.py)
+- write results to file for later consideration? (parameter flag)
 - calc position based on latest result from nodes
 - map position to layout grid
 - calc target servo position
 - calc servo easing (see interp.py)
-- send servo movements
+- send servo movements (see interp.py)
 - repeat
-- time sync?
+- time sync? (turns out this is unnecessary)
 
 nodes (reporter.py):
 - blast ap rssi non-stop (time.sleep(.016) worked 68-72 times in one second on a pi3)
-
-- sync time
 
 todo: testing of mapping.
 
