@@ -28,7 +28,8 @@ def selfconfigure(paramsfilef):
 #    for y in range(-10, 0, 1):
 #        incrementer = ((x_cp - x_min) / 9)
 #        y_val = (x_min + (incrementer * (y - 1)))
-#        new_y = (hname,y_val)
+#        y_dec = str (y / 10)
+#        new_y = (hname,ydec,y_val)
 #        y_range.append(new_y)
 #        
 #    y_cp = (hname, x_cp)
@@ -36,7 +37,8 @@ def selfconfigure(paramsfilef):
 #    for y in range(1,11):
 #        incrementer = ((x_max - x_cp) / 9)
 #        y_val = (x_min + (incrementer * (y - 1)))
-#        new_y = (hname,y_val)
+#        y_dec = str (y / 10)
+#        new_y = (hname,ydec,y_val)
 #        y_range.append(new_y)
 #     
 
