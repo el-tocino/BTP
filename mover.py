@@ -87,10 +87,10 @@ def move_servo():
     """ calc two midpoints, then move servo to mids then target"""
     while True:
         if cur_x != target_x or cur_y != target_y:
-            mid_x1 = (cur_x + ( .25 * (target_x - cur_x)))
-            mid_y1 = (cur_y + ( .25 * (target_y - cur_y)))
-            mid_x2 = (cur_x + ( .75 * (target_x - cur_x)))
-            mid_y2 = (cur_y + ( .75 * (target_y - cur_y)))
+            mid_x1 = (cur_x + ( .2 * (target_x - cur_x)))
+            mid_y1 = (cur_y + ( .2 * (target_y - cur_y)))
+            mid_x2 = (cur_x + ( .8 * (target_x - cur_x)))
+            mid_y2 = (cur_y + ( .8 * (target_y - cur_y)))
             servo_x.value(mid_x1)
             servo_y.value(mid_y1)
             servo_x.value(mid_x2)
@@ -100,7 +100,7 @@ def move_servo():
             cur_x = targetx
             cur_y = targety
             #print("Current position:", cur_x, cur_y)
-            time.sleep(.015)
+            time.sleep(.012)
 
 def main():
     """ Do the stuff and the things."""
