@@ -9,14 +9,42 @@ from gpiozero import Servo
 """ Using pre-mapped data, take updates from the reporters
     then adjust the servos in relation.  """
 
+
+client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
+client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+client.bind(("", 37020))
+curdata = {}
+paramsfile = argv[1]
+selfconfigure(paramsfile)
+servo_x = Servo(17)
+servo_y = Servo(27)
+servo_x.value(cur_x)
+servo_y.value(cur_y)
+target_x = cur_x
+target_y = cur_y
+
 def selfconfigure(paramsfilef):
     with open(paramsfilef, "r") as f:
         paramline = f.read().splitlines()
-        if paramline[0] = 'hostnames':
-        if paramline[0] = 'UR':
-        if paramline[0] = 'CP':
-        if paramline[0] = 'LL':
-        if paramline[0] = 'start_pos':
+        if paramline[0] == 'hostnames':
+            valid_hostnames = paramline[1:3].split(",")
+            print(valid_hostnames)
+
+        if paramline[0] == 'UR':
+            upper_right = paramline[1:20].split(",")
+            print(upper_right)
+
+        if paramline[0] == 'CP':
+            center_point = paramline[1,20].split(",")
+            print(center_point)
+
+        if paramline[0] == 'LL':
+            lower_left = paramline[1:20].split(",")
+
+        if paramline[0] == 'start_pos':
+            starting_position = paramline[1:20].split(",")
+            print(starting_position)            
+
 
 # hn_ll
 # hn_cp
@@ -42,18 +70,6 @@ def selfconfigure(paramsfilef):
 #        y_range.append(new_y)
 #     
 
-client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
-client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-client.bind(("", 37020))
-curdata = {}
-paramsfile = argv[1]
-selfconfigure(paramsfile)
-servo_x = Servo(17)
-servo_y = Servo(27)
-servo_x.value(cur_x)
-servo_y.value(cur_y)
-target_x = cur_x
-target_y = cur_y
 
 def listener():
     """ Listen for UDP packets from reporters and update curdata"""
@@ -67,7 +83,7 @@ def listener():
         curdata.update({phn: newvals})
 
 def map_target(cur_data):
-    for phn in (cur_data[0]:
+    for phn in cur_data[0]:
         host_str = cur_data[2]
         #
         relative_pos = ((host_str - min) * 100) / (max - min)

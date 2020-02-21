@@ -26,4 +26,4 @@ while True:
             message = str.encode(pdata)
             server.sendto(message, ('<broadcast>', 37020))
             print(pdata)
-    time.sleep(.016)
+    time.sleep(.025)

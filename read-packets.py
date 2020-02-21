@@ -18,6 +18,6 @@ while True:
     phn = entry[0]
     newvals = (entry[1],entry[2])
     curdata.update({phn: newvals})
-    #print (entry[0], entry[1], entry[2])
+    print (entry[0], entry[1], entry[2])
 
 
