@@ -1,0 +1,6 @@
+#!/bin/bash
+cd $CAMID
+ct=$(date +%s)
+gphoto2 --port=$CAMPORT --set-config /main/settings/datetime=$ct
+gphoto2 --port=$CAMPORT --capture-tethered --filename=${CAMID}-%04n.jpg
+
